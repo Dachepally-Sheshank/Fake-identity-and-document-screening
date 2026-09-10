@@ -20,7 +20,7 @@ services:
     name: trinetra-web
     runtime: static
     rootDir: frontend
-    buildCommand: corepack enable && pnpm install --frozen-lockfile && pnpm run build
+    buildCommand: npm install && npm run build
     staticPublishPath: dist
     autoDeployTrigger: commit
     envVars:
