@@ -1,0 +1,26 @@
+# JavaScript
+frontend/node_modules/
+frontend/dist/
+
+# Python
+backend/.venv/
+backend/__pycache__/
+backend/**/__pycache__/
+backend/.pytest_cache/
+*.py[cod]
+
+# Runtime data: test uploads, SQLite databases, logs
+backend/.data/
+backend/*.db
+*.log
+
+# Local configuration
+.env
+backend/.env
+frontend/.env
+
+# Editor and OS files
+.vscode/
+.idea/
+Thumbs.db
+.DS_Store
