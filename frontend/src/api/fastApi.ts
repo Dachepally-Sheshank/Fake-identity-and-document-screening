@@ -1,8 +1,9 @@
 import type { AuditApi, ScreeningApi } from './contracts'
 import type { Verification } from '../types/domain'
 
-// The local Vite proxy makes development requests same-origin. Set VITE_API_BASE_URL for a deployed API.
-const baseUrl = import.meta.env.VITE_API_BASE_URL ?? '/api/v1'
+// Local development uses the Vite proxy. Hosted builds receive the public API origin.
+const configuredOrigin = import.meta.env.VITE_API_ORIGIN
+const baseUrl = configuredOrigin ? `${configuredOrigin}/api/v1` : import.meta.env.VITE_API_BASE_URL ?? '/api/v1'
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`${baseUrl}${path}`, init)

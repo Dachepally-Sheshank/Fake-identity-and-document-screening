@@ -15,7 +15,7 @@ logging.basicConfig(level=settings.log_level, format="%(asctime)s %(levelname)s 
 app = FastAPI(title="TRINETRA API", version="0.2.0", description="Synthetic-test identity-document screening prototype. No legal identity verification.")
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=[origin.strip() for origin in settings.cors_origins.split(",") if origin.strip()],
     allow_credentials=False,
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
